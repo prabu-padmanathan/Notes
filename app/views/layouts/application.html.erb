@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DirectoryFile</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<%if !flash.empty?%>
+
+<% flash.each do |name, msg| %>
+
+<%if name.to_s == "notice" %>
+<div class="alert alert-success">
+<ul>
+<li><%= msg %></li>
+</ul>
+</div>
+<%end%>
+
+<%if name.to_s == "danger" %>
+<div class="alert alert-danger">
+<ul>
+<li><%= msg %></li>
+</ul>
+</div>
+<%end%>
+<% end %>
+
+
+
+</div>
+<%end%>
+<%if logged_in? %>
+<p align="right"> <%=link_to "logout",logout_path,:method=>:delete, :class=>"btn btn-info" ,:role=>"button"%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+
+<%else%>
+<p align="right"> <%=link_to "login",login_path,:method=>:delete, :class=>"btn btn-info" ,:role=>"button"%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<%end%>
+
+<%= yield %>
+</body>
+</html>

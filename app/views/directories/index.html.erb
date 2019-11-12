@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Folders</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <h2>Folders List</h2>
+  <div class="list-group">
+    <% @except_root_directories.each do |directory|%>
+      <a href="<%=notes_path(:directory_id=>directory.id)%>" class="list-group-item list-group-item-action"><%=directory.name%></a>
+      <%= link_to "delete", directory_path(directory),:method=>:delete,:data=>{:confirm=>"Are you sure ?"}%>
+    <%end%>
+  </div>
+</div>
+
+<p></p><p align="center">
+  <a href="<%=new_directory_path%>" class="btn btn-info" role="button">Create new folder</a></p>
+</body>
+</html>
