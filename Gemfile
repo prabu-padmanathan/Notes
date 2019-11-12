@@ -8,7 +8,7 @@ gem 'rails', '3.2.22.5'
 gem 'mysql2', '0.3.19'
 #gem 'activerecord-mysql-adapter'
 
-gem 'bootstrap-sass', '~> 3.1.1.0'  
+gem 'bootstrap-sass', '~> 3.4.1'  
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
